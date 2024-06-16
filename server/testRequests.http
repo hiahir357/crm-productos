@@ -1,0 +1,68 @@
+# Config
+@hostname = localhost
+@port = 4000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@protocol = http
+
+# URLs
+@url = {{protocol}}://{{host}}/api/products
+
+
+# Data
+@name = Radio Stereo Model T531
+@price = 200.23
+@availability = true
+
+###
+
+# @name createProduct
+POST {{url}}
+Content-Type: {{contentType}}
+
+{
+    "name": "{{name}}",
+    "price": {{price}} ,
+    "availability": {{availability}}
+}
+
+###
+
+@productId = {{createProduct.response.body.data.id}}
+
+# @name getProductById
+GET {{url}}/{{productId}}
+Content-Type: {{contentType}}
+
+###
+
+# @name getProducts
+GET {{url}}
+Content-Type: {{contentType}}
+
+###
+
+@newPrice = 421.34
+
+# @name updateProductPut
+PUT {{url}}/{{productId}}
+Content-Type: {{contentType}}
+
+{
+    "name": "{{name}}",
+    "price": {{newPrice}} ,
+    "availability": {{availability}}
+}
+
+###
+
+# @name updateProductPatch
+PATCH  {{url}}/{{productId}}
+Content-Type: {{contentType}}
+
+
+###
+
+# @name deleteProduct
+DELETE  {{url}}/{{productId}}
+Content-Type: {{contentType}}
