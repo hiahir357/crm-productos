@@ -22,7 +22,7 @@ git clone git@github.com:hiahir357/crm-productos
 cd crm-productos && ./run.sh
 ```
 
-En Windows
+En Windows PowerShell
 
 ```ps1
 git clone git@github.com:hiahir357/crm-productos
